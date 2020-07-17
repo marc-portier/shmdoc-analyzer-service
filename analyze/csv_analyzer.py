@@ -9,10 +9,9 @@ from numpyencoder import NumpyEncoder
 from datetime import datetime
 
 import os
-path = os.getcwd()
-if path == "/home/arno/Documents/shmdoc/shmdoc-analyzer-service/analyze":
-    import column as column_file # Use this one when using debug.py
-else:
+try:  #todo find a more elegamt solution for this --> why is column where it is?
+    import column as column_file # Use this one when using debug.py, __main__.py or make test
+except ImportError:
     from .. import column as column_file # Use this one when using docker
 
 from statistics import median
